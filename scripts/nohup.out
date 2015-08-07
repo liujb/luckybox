@@ -1,0 +1,67 @@
+1752:C 07 Aug 13:54:39.237 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+1752:M 07 Aug 13:54:39.238 * Increased maximum number of open files to 10032 (it was originally set to 2560).
+                _._                                                  
+           _.-``__ ''-._                                             
+      _.-``    `.  `_.  ''-._           Redis 3.0.3 (00000000/0) 64 bit
+  .-`` .-```.  ```\/    _.,_ ''-._                                   
+ (    '      ,       .-`  | `,    )     Running in standalone mode
+ |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+ |    `-._   `._    /     _.-'    |     PID: 1752
+  `-._    `-._  `-./  _.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |           http://redis.io        
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+ |`-._`-._    `-.__.-'    _.-'_.-'|                                  
+ |    `-._`-._        _.-'_.-'    |                                  
+  `-._    `-._`-.__.-'_.-'    _.-'                                   
+      `-._    `-.__.-'    _.-'                                       
+          `-._        _.-'                                           
+              `-.__.-'                                               
+
+1752:M 07 Aug 13:54:39.243 # Server started, Redis version 3.0.3
+1752:M 07 Aug 13:54:40.155 * DB loaded from disk: 0.911 seconds
+1752:M 07 Aug 13:54:40.155 * The server is now ready to accept connections on port 6379
+1752:M 07 Aug 14:10:07.571 * 100 changes in 300 seconds. Saving...
+1752:M 07 Aug 14:10:07.571 * Background saving started by pid 1901
+1901:C 07 Aug 14:10:07.574 * DB saved on disk
+1752:M 07 Aug 14:10:07.675 * Background saving terminated with success
+1752:M 07 Aug 14:15:08.000 * 100 changes in 300 seconds. Saving...
+1752:M 07 Aug 14:15:08.000 * Background saving started by pid 1941
+1941:C 07 Aug 14:15:08.002 * DB saved on disk
+1752:M 07 Aug 14:15:08.100 * Background saving terminated with success
+1752:M 07 Aug 14:20:09.001 * 100 changes in 300 seconds. Saving...
+1752:M 07 Aug 14:20:09.001 * Background saving started by pid 1999
+1999:C 07 Aug 14:20:09.002 * DB saved on disk
+1752:M 07 Aug 14:20:09.104 * Background saving terminated with success
+1752:M 07 Aug 14:30:54.442 * 100 changes in 300 seconds. Saving...
+1752:M 07 Aug 14:30:54.442 * Background saving started by pid 2054
+2054:C 07 Aug 14:30:54.445 * DB saved on disk
+1752:M 07 Aug 14:30:54.547 * Background saving terminated with success
+1752:M 07 Aug 14:33:01.395 * 10000 changes in 60 seconds. Saving...
+1752:M 07 Aug 14:33:01.396 * Background saving started by pid 2116
+2116:C 07 Aug 14:33:01.401 * DB saved on disk
+1752:M 07 Aug 14:33:01.496 * Background saving terminated with success
+1752:M 07 Aug 14:34:02.004 * 10000 changes in 60 seconds. Saving...
+1752:M 07 Aug 14:34:02.005 * Background saving started by pid 2117
+2117:C 07 Aug 14:34:02.402 * DB saved on disk
+1752:M 07 Aug 14:34:02.406 * Background saving terminated with success
+1752:M 07 Aug 14:35:03.072 * 10000 changes in 60 seconds. Saving...
+1752:M 07 Aug 14:35:03.073 * Background saving started by pid 2120
+2120:C 07 Aug 14:35:03.845 * DB saved on disk
+1752:M 07 Aug 14:35:03.873 * Background saving terminated with success
+1752:M 07 Aug 14:36:04.045 * 10000 changes in 60 seconds. Saving...
+1752:M 07 Aug 14:36:04.046 * Background saving started by pid 2139
+2139:C 07 Aug 14:36:05.429 * DB saved on disk
+1752:M 07 Aug 14:36:05.450 * Background saving terminated with success
+1752:M 07 Aug 14:37:06.050 * 10000 changes in 60 seconds. Saving...
+1752:M 07 Aug 14:37:06.051 * Background saving started by pid 2153
+2153:C 07 Aug 14:37:06.958 * DB saved on disk
+1752:M 07 Aug 14:37:06.978 * Background saving terminated with success
+1752:M 07 Aug 15:47:34.134 * 1 changes in 3600 seconds. Saving...
+1752:M 07 Aug 15:47:34.134 * Background saving started by pid 2579
+2579:C 07 Aug 15:47:34.812 * DB saved on disk
+1752:M 07 Aug 15:47:34.850 * Background saving terminated with success
+1752:M 07 Aug 16:47:35.041 * 1 changes in 3600 seconds. Saving...
+1752:M 07 Aug 16:47:35.042 * Background saving started by pid 3579
+3579:C 07 Aug 16:47:35.713 * DB saved on disk
+1752:M 07 Aug 16:47:35.761 * Background saving terminated with success
