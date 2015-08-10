@@ -5,7 +5,7 @@ var settingsModel = require('../models/settings.js');
 var detailsModel = require('../models/details.js');
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
+router.get('/list', function (req, res, next) {
 
   var activities = require('../conf/activity.js');
   res.render('index', {
