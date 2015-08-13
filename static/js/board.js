@@ -15,7 +15,7 @@ Zepto(function ($) {
     thirdPrize: {
       desc: '三等奖'
     }
-  }
+  };
 
   /**
    * 开始滚动
