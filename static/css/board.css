@@ -1,0 +1,40 @@
+.main {
+  margin: 2rem 5%;
+}
+
+.wrap {}
+
+.title {
+  font-size: 6rem;
+  color: #ff8a01;
+  margin: 3rem 0;
+}
+
+.sub-title {
+  font-size: 4rem;
+  color: #333;
+}
+
+#dv-result {
+  border-radius: 3rem;
+  border: 1rem solid #ff8a01;
+  background-color: #000;
+  opacity: .8;
+  color: #fff;
+  padding: 2rem;
+  box-shadow: 2rem 2rem 10rem #ff8a01;
+  font-size: 8rem;
+}
+
+.tips {
+  margin-top: 5rem;
+  text-align: left;
+  padding: 0 2rem;
+}
+
+.tips>p {
+  font-size: 2.45rem;
+  /*height: 4rem;*/
+  line-height: 4rem;
+  color: #333;
+}

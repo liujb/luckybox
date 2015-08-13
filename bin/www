@@ -1,0 +1,126 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+var app = require('../app');
+var debug = require('debug')('luckybox:server');
+var http = require('http');
+var luckyModel = require('../models/lucky');
+var detailsModel = require('../models/details');
+/**
+ * Get port from environment and store in Express.
+ */
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+/**
+ * Create HTTP server.
+ */
+var server = http.createServer(app);
+var io = require('socket.io')(server);
+// connect event
+io.on('connection', function(socket) {
+  console.log('a user connected');
+  // disconnect
+  socket.on('disconnect', function() {
+    console.log('user disconnect');
+  });
+  // 监听抽奖动作
+  socket.on('drawLuckyUsers', function(data) {
+    console.log(data);
+    detailsModel.get(data.activityId, function(details) {
+      var tmpPrize = details[data.actionName];
+      if (parseInt(tmpPrize.left) <= 0) {
+        return socket.emit('drawLuckyResult', '已经不能再抽了.');
+      }
+      //调抽奖的model
+      luckyModel.luckyUsers(data, function(phones) {
+        if(!phones || !phones.length){
+          data.phones = ['SORRY, HAVE NO DATA!'];
+        }
+        data.phones = phones;
+        data.result = phones && phones.length ? true : false;
+        console.log(data);
+        return io.emit('drawLuckyResult', data);
+      });
+    })
+  });
+  // 监听获取随机电话
+  socket.on('getRandomPhones', function(data) {
+    luckyModel.randomUsers(data, function(result) {
+      if(!result || !result.length){
+        return socket.emit('getRandomPhones', ['SORRY, HAVE NO DATA!']);
+      }
+      return socket.emit('getRandomPhones', result);
+    });
+  });
+  // 接收滚动信号
+  socket.on('start roll', function(data) {
+    console.log('roll '+ data);
+    return io.emit('start roll', data);
+  });
+  // 接收暂停信号
+  socket.on('pause roll', function(data) {
+    return io.emit('pause roll', data);
+  });
+
+  // 发送给所有监听了drawLuckyResult的socket，不包括自己 
+  // socket.broadcast.emit('drawLuckyResult', {})
+  // 
+  // 发送给所有监听了drawLuckyResult的socket人，包括自己
+  // io.emit('drawLuckyResult', {});
+  // 
+  // 只发送给自己
+  // socket.emit('drawLuckyResult', {});
+});
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+/**
+ * Normalize a port into a number, string, or false.
+ */
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+  return false;
+}
+/**
+ * Event listener for HTTP server "error" event.
+ */
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+  var bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port;
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}

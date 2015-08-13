@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="css/pure-min.css">
+<link rel="stylesheet" href="css/details.css">
+<div class='main'>
+  <table class="pure-table pure-table-bordered">
+    <thead>
+      <tr><th>序号</th><th>活动名称</th><th>操作</th></tr>
+    </thead>
+    <tbody>
+      <% data.forEach(function(it, index){%>
+      <tr><td><%= index+1 %></td><td><%= it.name %></td><td><a target="_blank" href="/settings?activityId=<%= it.activityId %>">控制台</a>&nbsp;<a target="_blank" href="/details?activityId=<%= it.activityId %>">详情</a>&nbsp;<a target="_blank" href="/board?activityId=<%=it.activityId%>">展板</a></td></tr>
+      <%})%>
+    </tbody>
+  </table>
+</div>

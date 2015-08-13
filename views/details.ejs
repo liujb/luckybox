@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="css/pure-min.css">
+<link rel="stylesheet" href="css/details.css">
+<div class="main">
+  <a name="firstPrize" id="firstPrize" ></a>
+  <h1>一等奖</h1>
+  <div class="wrap">
+    <p>
+    共<span><%= (detail.firstPrize && detail.firstPrize.totalCnt) || "0" %></span>名，
+    共抽<span><%= (detail.firstPrize && detail.firstPrize.times) || "0" %></span>次，
+    已抽<span><%= (detail.firstPrize && detail.firstPrize.have) || "0" %></span>次，
+    剩<span><%= (detail.firstPrize && detail.firstPrize.left) || "0" %></span>次
+    </p>
+    <table class="pure-table pure-table-bordered">
+      <thead>
+        <tr><th>序号</th><th>中奖名单</th><th>操作</th></tr>
+      </thead>
+      <tbody>
+				<% if(detail.firstPrize && detail.firstPrize.luckyPhones){ detail.firstPrize.luckyPhones.forEach(function(it, index){%>
+				<tr><td><%= index+1 %></td><td><%= it %></td><td><a href="tel:<%=it %>">电话</a>&nbsp;<a href="sms:<%=it %>">短信</a></td></tr>
+				<%})}%>
+      </tbody>
+    </table>
+  </div>
+  <a name="secondPrize" id="secondPrize" ></a>
+  <h1>二等奖</h1>
+  <div class="wrap">
+    <p>
+    共<span><%= (detail.secondPrize && detail.secondPrize.totalCnt) || "0" %></span>名，
+    共抽<span><%= (detail.secondPrize && detail.secondPrize.times) || "0" %></span>次，
+    已抽<span><%= (detail.secondPrize && detail.secondPrize.have) || "0" %></span>次，
+    剩<span><%= (detail.secondPrize && detail.secondPrize.left) || "0" %></span>次
+    </p>
+    <table class="pure-table pure-table-bordered">
+      <thead>
+        <tr><th>序号</th><th>中奖名单</th><th>操作</th></tr>
+      </thead>
+      <tbody>
+				<% if(detail.secondPrize && detail.secondPrize.luckyPhones){ detail.secondPrize.luckyPhones.forEach(function(it, index){%>
+				<tr><td><%= index+1 %></td><td><%= it %></td><td><a href="tel:<%=it %>">电话</a>&nbsp;<a href="sms:<%=it %>">短信</a></td></tr>
+				<%})}%>
+      </tbody>
+    </table>
+  </div>
+  <a name="thirdPrize" id="thirdPrize" ></a>
+  <h1>三等奖</h1>
+  <div class="wrap">
+    <p>
+    共<span><%= (detail.thirdPrize && detail.thirdPrize.totalCnt) || "0" %></span>名，
+    共抽<span><%= (detail.thirdPrize && detail.thirdPrize.times) || "0" %></span>次，
+    已抽<span><%= (detail.thirdPrize && detail.thirdPrize.have) || "0" %></span>次，
+    剩<span><%= (detail.thirdPrize && detail.thirdPrize.left) || "0" %></span>次
+    </p>
+    <table class="pure-table pure-table-bordered">
+      <thead>
+        <tr><th>序号</th><th>中奖名单</th><th>操作</th></tr>
+      </thead>
+      <tbody>
+				<% if(detail.thirdPrize && detail.thirdPrize.luckyPhones){ detail.thirdPrize.luckyPhones.forEach(function(it, index){%>
+				<tr><td><%= index+1 %></td><td><%= it %></td><td><a href="tel:<%=it %>">电话</a>&nbsp;<a href="sms:<%=it %>">短信</a></td></tr>
+				<%})}%>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class='clear-fix'></div>
+<div class='wrap-button'>
+  <a class="btn-orange" href="/settings?activityId=<%= detail.activityId %>">返回</a>
+</div>
+<input type="hidden" id="hid-activity-id" value="<%= detail.activityId %>">
+<script type='text/javascript' src="js/details.js"></script>

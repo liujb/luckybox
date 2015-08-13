@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="css/settings.css">
+<div class="main">
+  <form action="" id="form-setting">
+    <div class='settings'>
+      <p>一等奖：共<input type="tel" id="txtFirstPrizeCnt" value="<%= setting.firstPrizeCnt %>" name="firstPrizeCnt" placeholder="名数">名，共抽<input type="tel" id="txtFirstPrizeTimes" value="<%=setting.firstPrizeTimes %>" name="firstPrizeTimes" placeholder="次数">次</p>
+      <p>二等奖：共<input type="tel" id="txtSecondPrizeCnt" value="<%=setting.secondPrizeCnt %>" name="secondPrizeCnt" placeholder="名数">名，共抽<input type="tel" id="txtSecondPrizeTimes" value="<%=setting.secondPrizeTimes %>" name="secondPrizeTimes" placeholder="次数">次</p>
+      <p>三等奖：共<input type="tel" id="txtThirdPrizeCnt" value="<%=setting.thirdPrizeCnt %>" name="thirdPrizeCnt" placeholder="名数">名，共抽<input type="tel" id="txtThirdPrizeTimes" value="<%=setting.thirdPrizeTimes %>" name="thirdPrizeTimes" placeholder="次数">次</p>
+    </div>
+    <div class="settings-wrap-buttons">
+      <a class="btn-gray" id="btnSave">保存</a>
+      <a class="btn-orange" enable="true" id="btnPause">暂停</a>
+      <a class="btn-orange" enable="true" id="btnRoll">滚动</a>
+    </div>
+    <input type="hidden" id="hid-activity-id" name="activityId" value="<%= activityId %>">
+  </form>
+  <div class='details'>
+    <p>一等奖：共<span id="sp-first-times"><%= (detail.firstPrize && detail.firstPrize.times) || '0' %></span>次，已抽<span id="sp-first-have"><%= (detail.firstPrize && detail.firstPrize.have) || '0' %></span>次，剩余<span id="sp-first-left"><%= (detail.firstPrize && detail.firstPrize.left) || '0' %></span>次<a href="/details?activityId=<%= activityId %>#firstPrize">详情</a></p>
+    <p>二等奖：共<span id="sp-second-times"><%= (detail.secondPrize && detail.secondPrize.times) || '0' %></span>次，已抽<span id="sp-second-have"><%= (detail.secondPrize && detail.secondPrize.have) || '0' %></span>次，剩余<span id="sp-second-left"><%= (detail.secondPrize && detail.secondPrize.left) || '0' %></span>次<a href="/details?activityId=<%= activityId %>#secondPrize">详情</a></p>
+    <p>三等奖：共<span id="sp-third-times"><%= (detail.thirdPrize && detail.thirdPrize.times) || '0' %></span>次，已抽<span id="sp-third-have"><%= (detail.thirdPrize && detail.thirdPrize.have) || '0' %></span>次，剩余<span id="sp-third-left"><%= (detail.thirdPrize && detail.thirdPrize.left) || '0' %></span>次<a href="/details?activityId=<%= activityId %>#thirdPrize">详情</a></p>
+  </div>
+  <div class="details-wrap-buttons">
+    <a class="btn-gray" id="btnFirstPrize" action-name="firstPrize">抽一等奖</a>
+    <a class="btn-gray" id="btnSecondPrize" action-name="secondPrize">抽二等奖</a>
+    <a class="btn-gray" id="btnThirdPrize" action-name="thirdPrize">抽三等奖</a>
+  </div>
+  <input type="hidden" id="hid-page-type" value="<%= pageType %>">
+</div>
+<script src="js/settings.js" type="text/javascript"></script>
