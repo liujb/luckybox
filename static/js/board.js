@@ -9,7 +9,7 @@ Zepto(function ($) {
     firstPrize: {
       desc: '一等奖'
     },
-    scondPrize: {
+    secondPrize: {
       desc: '二等奖'
     },
     thirdPrize: {
@@ -55,13 +55,14 @@ Zepto(function ($) {
       interval = 0;
     }
     handlerPhones(data.phones);
-    dvTitle.text('恭喜您，' + map[data.actionName].desc);
+    dvTitle.text('恭喜您，' + map[data.actionName].desc + '！！！');
   });
 
   /**
    * Monitor the get random phones
    */
   socket.on('getRandomPhones', function (phones) {
+    if (interval === 0) return;
     handlerPhones(phones);
   });
 
