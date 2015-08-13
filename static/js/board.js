@@ -25,7 +25,7 @@ Zepto(function ($) {
   var startRoll = function (data) {
     interval = setInterval(function () {
       return socket.emit('getRandomPhones', data);
-    }, 120);
+    }, 100);
   };
 
   /**
@@ -55,7 +55,7 @@ Zepto(function ($) {
       interval = 0;
     }
     handlerPhones(data.phones);
-    dvTitle.text('恭喜您，' + map[data.actionName].desc + '！！！');
+    dvTitle.text('恭喜您，' + map[data.actionName].desc + '！');
   });
 
   /**
