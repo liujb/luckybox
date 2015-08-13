@@ -37,7 +37,7 @@ Zepto(function ($) {
 
     var text = phones.join('\r\n');
     dvResult.text(text);
-  }
+  };
 
   /**
    * Monitor the lucky result
